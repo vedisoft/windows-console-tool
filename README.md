@@ -45,7 +45,7 @@ WScript.Echo(arguments);
 Успешно начато установление соединения с АТС
 ```
 
-![Соединение установлено](https://github.com/vedisoft/windows-console-tool/blob/master/testserver-success.png)
+![Соединение установлено](https://github.com/vedisoft/windows-console-tool/blob/0a45331dbcecb832f7cfb262a3937c4d4327a823/testserver-success.png)
 
 Тестовое окружение настроено.
 
