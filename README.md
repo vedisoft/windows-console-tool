@@ -22,6 +22,8 @@ for(i = 0; i < WScript.Arguments.length; i++)
 WScript.Echo(arguments);
 ```
 
+Скопируйте файл output.js в папку C:\Temp\
+
 Шаг 2. Установим и настроим модуль "Простые звонки - Интеграция со сторонним Windows приложением"
 --------------------------------------
 
@@ -42,6 +44,8 @@ WScript.Echo(arguments);
 * Далее приложение запросит ввести пароль, просто нажмите Enter
 Успешно начато установление соединения с АТС
 ```
+
+![Соединение установлено](https://github.com/vedisoft/windows-console-tool/testserver-success.png)
 
 Тестовое окружение настроено.
 
@@ -92,21 +96,25 @@ phone=100
 ; Обработчик события, которое возникает при входящем звонке на добавочный номер (зазвонил телефон). 
 ; Раскомментируйте параметр и укажите путь для запуска внешнего приложения. 
 ; Используйте кавычки, если путь для запуска внешнего приложения содержит пробелы.
-incomingCallEventCmd="C:\Temp\output.js" FROM=$FROM TO=$TO LINE=$LINE
+incomingCallEventCmd="C:\Temp\output.js" INCOMING_CALL FROM=$FROM TO=$TO LINE=$LINE
 
 ; Обработчик события, которое возникает при ответе добавочного номера на входящий звонок (пользователь поднял трубку). 
 ; Раскомментируйте параметр и укажите путь для запуска внешнего приложения. 
 ; Используйте кавычки, если путь для запуска внешнего приложения содержит пробелы.
-answeredCallEventCmd="C:\Temp\output.js" FROM=$FROM TO=$TO LINE=$LINE
+answeredCallEventCmd="C:\Temp\output.js" ANSWERED_INCOMING_CALL FROM=$FROM TO=$TO LINE=$LINE
 
 ; Обработчик события, которое возникает при завершении входящего или исходящего звонка на добавочном номере (сотрудник положил трубку). 
 ; Раскомментируйте параметр и укажите путь для запуска внешнего приложения. 
 ; Используйте кавычки, если путь для запуска внешнего приложения содержит пробелы.
-finishedCallEventCmd="C:\Temp\output.js" FROM=$FROM TO=$TO DATE=$DATE AUDIO=$AUDIO DURATION=$DURATION DIRECTION=$DIRECTION LINE=$LINE
+finishedCallEventCmd="C:\Temp\output.js" FINISHED_CALL FROM=$FROM TO=$TO DATE=$DATE AUDIO=$AUDIO DURATION=$DURATION DIRECTION=$DIRECTION LINE=$LINE
 ```
+
+Проверьте, что файл output.js находится в папке C:\Temp\
 
 Шаг 3. Проверим, что модуль "Простые звонки - Интеграция со сторонним Windows приложением" вызывает внешнее приложение
 --------------------------------------
+
+Запустим ProstieZvonki-debug.exe. 
 
 Чтобы проверить работу всплывающей карточки, создадим входящий звонок с номера 74951002030 на номер 100 с помощью диагностической утилиты Diagnostic.exe:
 
